@@ -1,0 +1,16 @@
+<div class="main-content">
+  <div class="itens">
+    <div *ngFor="let card of cardsData" class="cards">
+      <div class="card-header">
+        <b> {{ card.title }} </b>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li *ngFor="let item of card.content">
+            {{ item.text }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

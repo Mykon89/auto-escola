@@ -1,0 +1,157 @@
+<div class="main-content">
+  <div class="page-filters">
+    <h2 class="title">Pesquisar Usuário</h2>
+    <form>
+      <div class="filters">
+        <div class="form-input">
+          <label for="name" class="labelInput">Nome</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="formData.name"
+          />
+        </div>
+
+        <div class="form-item">
+          <label for="email" class="labelInput">Email</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            [(ngModel)]="formData.email"
+          />
+        </div>
+
+        <div class="form-item">
+          <label for="cpf" class="labelInput">CPF</label>
+          <input
+            mask="000.000.000-00"
+            type="text"
+            id="cpf"
+            name="cpf"
+            [(ngModel)]="formData.cpf"
+          />
+        </div>
+
+        <div class="form-item">
+          <label for="status">Status</label>
+          <select id="status" name="status" [(ngModel)]="formData.status">
+            <option value="6">Todos</option>
+            <option value="0">Inativo</option>
+            <option value="1">Ativo</option>
+          </select>
+        </div>
+
+        <div class="form-item">
+          <label for="group">Grupo</label>
+          <select id="group" name="group" [(ngModel)]="formData.usergroup">
+            <option value="0">Todos</option>
+            <option value="1">Administrador</option>
+            <option value="2">Instrutor</option>
+            <option value="3">Aluno</option>
+          </select>
+        </div>
+
+        <div class="form-item">
+          <label for="perPage">Itens por pagina</label>
+          <select id="perPage" name="perPage" [(ngModel)]="formData.perPage">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+
+        <div class="form-item">
+          <button class="btn-filter" (click)="fetchUsers(1)">
+            Aplicar Filtros
+          </button>
+        </div>
+      </div>
+    </form>
+    <!-- simbolo de loading -->
+    <div *ngIf="isLoad" class="loader-container">
+      <span class="loader"></span>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="table-result">
+      <table class="responsive-table" id="customers">
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>CPF</th>
+          <th>Grupo</th>
+          <th>Status</th>
+          <th>Criado em</th>
+          <th>Nascido em</th>
+          <th colspan="2" class="action">Ação</th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>{{ contentLength(user.name) }}</td>
+          <td>{{ contentLength(user.email) }}</td>
+          <td>{{ user.cpf }}</td>
+          <td>{{ user.group }}</td>
+          <td class="status">
+            <span
+              class="statusDot"
+              [ngClass]="{
+                active: user.status === 'Ativo',
+                inactive: user.status === 'Inativo'
+              }"
+            ></span>
+            {{ user.status }}
+          </td>
+          <td>{{ user.dt_created }}</td>
+          <td>{{ user.dt_nasc }}</td>
+          <td>
+            <button class="btn-action">
+              <img
+                src="../../../../assets/icones/view.svg"
+                alt="Visualizar"
+                class="view"
+                (click)="showUser()"
+              />
+            </button>
+
+            <button class="btn-action">
+              <img
+                src="../../../../assets/icones/edit.svg"
+                alt="Editar"
+                class="edit"
+              />
+            </button>
+          </td>
+        </tr>
+      </table>
+      <!-- paginação  -->
+      <div class="pagination">
+        <div>
+          <span
+            >Total: <b>{{ totalUsers }} </b>
+          </span>
+          <span
+            >Paginas: <b>{{ totalPages }} </b>
+          </span>
+        </div>
+        <div class="buttons">
+          <button
+            class="btn-pagination"
+            [disabled]="currentPage === 1"
+            (click)="fetchUsers(this.currentPage - pagination)"
+          >
+            <
+          </button>
+          {{ currentPage }}
+          <button
+            class="btn-pagination"
+            [disabled]="currentPage === totalPages"
+            (click)="fetchUsers(this.currentPage + pagination)"
+          >
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

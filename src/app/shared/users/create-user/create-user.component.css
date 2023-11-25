@@ -1,0 +1,91 @@
+.title {
+  text-align: center;
+}
+.box {
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25%, -49%);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+}
+
+.inputForm {
+  margin: 8px;
+}
+
+/* Estilização para o switch */
+.switch-container {
+  display: flex;
+  align-items: center;
+}
+
+.switch-label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input[type="checkbox"] {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + .slider {
+  background-color: #007bff;
+}
+
+input[type="checkbox"]:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.errorMessage {
+  border-radius: 10px;
+  border: 1px solid #2b7fbe;
+  background-color: #46a8f5;
+  color: #fff;
+}
+
+.errorMessageCpf {
+  border-radius: 10px;
+  border: 1px solid #ac7016;
+  background-color: #ffa92b;
+  color: #fff;
+}
+
+.successMessage {
+  border-radius: 10px;
+  border: 1px solid #127a54;
+  background-color: #2eb886;
+  color: #fff;
+}

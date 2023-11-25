@@ -1,0 +1,6 @@
+<router-outlet>
+  <ng-container *ngIf="username; else login">
+    <app-menu></app-menu>
+  </ng-container>
+  <ng-template #login></ng-template>
+</router-outlet>

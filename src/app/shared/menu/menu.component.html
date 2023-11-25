@@ -1,0 +1,31 @@
+<!-- sidebar.component.html -->
+
+<div class="sidebar">
+  <!-- Coloque aqui os itens do menu -->
+  <div class="avatar-container">
+    <img
+      src="https://cdn.icon-icons.com/icons2/2104/PNG/512/avatar_icon_129437.png"
+      class="img-avatar"
+      alt=""
+    />
+    <button class="logout-button" (click)="logout()"><b>Sair</b></button>
+    <p class="welcome">Olá, {{ username }}</p>
+  </div>
+  <ul class="menu-list">
+    <li
+      *ngFor="let item of MenuItems"
+      (click)="showSubMenu(item.name)"
+      class="{{ item.cName }}"
+    >
+      {{ item.name }}
+      <ul *ngIf="selectedItem === item.name">
+        <li
+          *ngFor="let subItem of item.subItems"
+          routerLink="{{ subItem.link }}"
+        >
+          {{ subItem.label }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

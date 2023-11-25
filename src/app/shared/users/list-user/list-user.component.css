@@ -1,0 +1,180 @@
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.page-content,
+.page-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  width: 100%;
+}
+
+.page-filters {
+  flex-direction: column;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  /* align-items: center; */
+}
+
+.filter {
+  display: inline-block;
+  margin-right: 10px;
+  width: 100%;
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.status {
+  text-align: left;
+}
+
+.btn-action {
+  border: none;
+  background: transparent;
+  text-align: center;
+  margin: 0px 5px;
+}
+
+.btn-action img {
+  width: 24px;
+}
+
+.btn-action .view {
+  border: 1px solid green;
+  border-radius: 6px;
+  background: #2eb987;
+  cursor: pointer;
+}
+
+.btn-action .edit {
+  border: 1px solid orangered;
+  border-radius: 6px;
+  background: orange;
+  cursor: pointer;
+}
+
+#customers th {
+  text-align: center;
+}
+
+#customers tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+#customers tr:hover {
+  background: #2a3c69;
+  color: white;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #2a3c69;
+  color: white;
+}
+
+.table-result {
+  box-shadow: 0 5px 5px -3px #0003, 0 8px 10px 1px #00000024,
+    0 3px 14px 2px #0000001f;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  background: #2a3c69;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.btn-pagination {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  border: 1.5px solid black;
+  margin: 5px;
+  font-weight: 900;
+}
+
+.btn-filter {
+  border: none;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.5s;
+  background-color: #2a3c69;
+  color: #fff;
+}
+
+.btn-filter:hover {
+  cursor: pointer;
+  box-shadow: 0px 1px 7px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* início da estilização que define a bolinha do status ativo e inativo */
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.active {
+  background-color: green;
+}
+
+.inactive {
+  background-color: gray;
+}
+/* fim */
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  justify-content: flex-end;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  flex-wrap: wrap;
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 7px 2px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1%;
+}
+
+/* Define a largura da tabela na página */
+.responsive-table {
+  width: 80vw;
+}

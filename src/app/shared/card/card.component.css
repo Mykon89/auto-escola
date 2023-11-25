@@ -1,0 +1,18 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  width: 380px;
+  height: 247px;
+}
+
+.card-header {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 10px;
+}

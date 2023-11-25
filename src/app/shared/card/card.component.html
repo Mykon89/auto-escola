@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    {{ cardData.title }}
+  </div>
+  <div class="card-body">
+    <ul>
+      <li *ngFor="let item of cardData.content">
+        {{ item.text }}
+      </li>
+    </ul>
+  </div>
+</div>
