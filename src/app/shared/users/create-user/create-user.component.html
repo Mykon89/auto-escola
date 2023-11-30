@@ -2,151 +2,162 @@
   <h2 class="title">Cadastro de usuário</h2>
   <div class="box">
     <form [formGroup]="userForm" (ngSubmit)="submitForm()">
-      <div class="inputForm">
-        <mat-form-field>
-          <input
-            matInput
-            formControlName="username"
-            type="text"
-            id="username"
-            name="username"
-            required
-          />
-          <mat-label for="username">Usuário</mat-label>
-        </mat-form-field>
+      <div class="wrap">
+        <div class="inputForm">
+          <mat-form-field>
+            <input
+              matInput
+              formControlName="username"
+              type="text"
+              id="username"
+              name="username"
+              required
+            />
+            <mat-label for="username">Usuário</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div class="inputForm">
+          <mat-form-field>
+            <input
+              matInput
+              formControlName="password"
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+            <mat-label for="password">Senha</mat-label>
+          </mat-form-field>
+        </div>
       </div>
 
-      <div class="inputForm">
-        <mat-form-field>
-          <input
-            matInput
-            formControlName="password"
-            type="password"
-            id="password"
-            name="password"
-            required
-          />
-          <mat-label for="password">Senha</mat-label>
-        </mat-form-field>
+      <div class="wrap">
+        <div class="inputForm">
+          <mat-form-field>
+            <input
+              matInput
+              formControlName="email"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Ex. email@example.com"
+              required
+            />
+            <mat-label for="email">E-mail</mat-label>
+            <mat-error
+              *ngIf="
+                userForm.get('email') &&
+                !userForm.get('email')?.hasError('required')
+              "
+            >
+              Por favor, informar um e-mail válido.
+            </mat-error>
+            <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+              E-mail é <strong>requerido</strong>.
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="inputForm">
+          <mat-form-field>
+            <input
+              matInput
+              formControlName="cpf"
+              type="text"
+              id="cpf"
+              name="cpf"
+              required
+            />
+            <mat-label for="cpf">CPF</mat-label>
+          </mat-form-field>
+        </div>
       </div>
 
-      <div class="inputForm">
-        <mat-form-field>
-          <input
-            matInput
-            formControlName="email"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Ex. email@example.com"
-            required
-          />
-          <mat-label for="email">E-mail</mat-label>
-          <mat-error
-            *ngIf="
-              userForm.get('email') &&
-              !userForm.get('email')?.hasError('required')
-            "
-          >
-            Por favor, informar um e-mail válido.
-          </mat-error>
-          <mat-error *ngIf="userForm.get('email')?.hasError('required')">
-            E-mail é <strong>requerido</strong>.
-          </mat-error>
-        </mat-form-field>
+      <div class="wrap">
+        <div class="inputForm">
+          <mat-form-field>
+            <input
+              matInput
+              formControlName="name"
+              type="tel"
+              id="name"
+              name="name"
+              required
+            />
+            <mat-label for="name">Nome completo</mat-label>
+          </mat-form-field>
+        </div>
+
+        <div class="inputForm">
+          <mat-form-field>
+            <input
+              matInput
+              formControlName="phone"
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+            />
+            <mat-label for="phone">Telefone</mat-label>
+          </mat-form-field>
+        </div>
       </div>
 
-      <div class="inputForm">
-        <mat-form-field>
-          <input
-            matInput
-            formControlName="cpf"
-            type="text"
-            id="cpf"
-            name="cpf"
-            required
-          />
-          <mat-label for="cpf">CPF</mat-label>
-        </mat-form-field>
+      <div class="wrap">
+        <div class="inputForm">
+          <mat-form-field>
+            <mat-label for="bornDate">Data de Nascimento</mat-label>
+            <input
+              matInput
+              formControlName="dt_nasc"
+              type="date"
+              id="bornDate"
+              name="bornDate"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="inputForm">
+          <mat-form-field>
+            <mat-label for="gender">Sexo</mat-label>
+            <mat-select formControlName="gender" id="gender" name="gender">
+              <mat-option value="0" selected>Selecione</mat-option>
+              <mat-option value="Masculino">Masculino</mat-option>
+              <mat-option value="Feminino">Feminino</mat-option>
+              <mat-option value="Outro">Outro</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
 
-      <div class="inputForm">
-        <mat-form-field>
-          <input
-            matInput
-            formControlName="name"
-            type="tel"
-            id="name"
-            name="name"
-            required
-          />
-          <mat-label for="name">Nome completo</mat-label>
-        </mat-form-field>
+      <div class="wrap">
+        <div class="inputForm">
+          <mat-form-field>
+            <mat-label for="usergroup">Grupo</mat-label>
+            <mat-select
+              formControlName="usergroup"
+              id="usergroup"
+              name="usergroup"
+            >
+              <mat-option value="0" selected>Selecione</mat-option>
+              <mat-option value="1">Administrador</mat-option>
+              <mat-option value="2">Aluno</mat-option>
+              <mat-option value="3">Instrutor</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="switch-container inputForm">
+          <label class="switch-label">Status</label>
+          <label class="switch">
+            <input formControlName="status" type="checkbox" name="status" />
+            <span class="slider"></span>
+          </label>
+        </div>
       </div>
 
-      <div class="inputForm">
-        <mat-form-field>
-          <input
-            matInput
-            formControlName="phone"
-            type="tel"
-            id="phone"
-            name="phone"
-            required
-          />
-          <mat-label for="phone">Telefone</mat-label>
-        </mat-form-field>
-      </div>
-
-      <div class="inputForm">
-        <mat-form-field>
-          <mat-label for="bornDate">Data de Nascimento</mat-label>
-          <input
-            matInput
-            formControlName="dt_nasc"
-            type="date"
-            id="bornDate"
-            name="bornDate"
-          />
-        </mat-form-field>
-      </div>
-
-      <div class="inputForm">
-        <mat-form-field>
-          <mat-label for="gender">Sexo</mat-label>
-          <mat-select formControlName="gender" id="gender" name="gender">
-            <mat-option value="0" selected>Selecione</mat-option>
-            <mat-option value="Masculino">Masculino</mat-option>
-            <mat-option value="Feminino">Feminino</mat-option>
-            <mat-option value="Outro">Outro</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div class="inputForm">
-        <mat-form-field>
-          <mat-label for="usergroup">Grupo</mat-label>
-          <mat-select
-            formControlName="usergroup"
-            id="usergroup"
-            name="usergroup"
-          >
-            <mat-option value="0" selected>Selecione</mat-option>
-            <mat-option value="1">Administrador</mat-option>
-            <mat-option value="2">Aluno</mat-option>
-            <mat-option value="3">Instrutor</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <div class="switch-container inputForm">
-        <label class="switch-label">Status</label>
-        <label class="switch">
-          <input formControlName="status" type="checkbox" name="status" />
-          <span class="slider"></span>
-        </label>
-      </div>
-      <div class="inputForm">
+      <div class="btn-form">
         <button mat-raised-button type="submit" color="primary">Salvar</button>
       </div>
       <!-- simbolo de loading -->

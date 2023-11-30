@@ -40,7 +40,6 @@ export class CreateUserComponent {
 
   constructor(
     private apiService: ApiService,
-    private el: ElementRef,
     private formBuilder: FormBuilder
   ) {
     this.userForm = this.formBuilder.group({
@@ -67,7 +66,7 @@ export class CreateUserComponent {
       const formData = this.userForm.value; // Obtém os dados do formulário
       console.log('Dados do formulário:', formData); // Exibe os dados do formulário no console
 
-      this.onSubmit;
+      this.onSubmit();
     }
   }
 
