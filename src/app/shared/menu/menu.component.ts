@@ -39,6 +39,15 @@ export class MenuComponent {
         { label: 'Agenda por Instrutor', link: '/agenda-by-instructor' },
       ],
     },
+    {
+      name: 'Carros',
+      cName: 'menu-item',
+      icone: '../../assets/icones/menu/schedule.png',
+      subItems: [
+        { label: 'Novo carro', link: '/new-car' },
+        { label: 'Listar carros', link: '/list-car' },
+      ],
+    },
   ];
 
   selectedItem: string | null = null;

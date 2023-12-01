@@ -29,6 +29,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { CreateCarComponent } from './shared/cars/create-car/create-car.component';
+import { ListCarComponent } from './shared/cars/list-car/list-car.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { MatButtonModule } from '@angular/material/button';
     CreateUserComponent,
     ListUserComponent,
     CreateScheduleComponent,
+    CreateCarComponent,
+    ListCarComponent,
   ],
   imports: [
     BrowserModule,

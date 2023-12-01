@@ -7,6 +7,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { CreateUserComponent } from './shared/users/create-user/create-user.component';
 import { ListUserComponent } from './shared/users/list-user/list-user.component';
 import { CreateScheduleComponent } from './shared/schedules/create-schedule/create-schedule.component';
+import { CreateCarComponent } from './shared/cars/create-car/create-car.component';
+import { ListCarComponent } from './shared/cars/list-car/list-car.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +18,16 @@ const routes: Routes = [
   {
     path: 'new-schedule',
     component: CreateScheduleComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'new-car',
+    component: CreateCarComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'list-car',
+    component: ListCarComponent,
     canActivate: [AuthGuard],
   },
   {
