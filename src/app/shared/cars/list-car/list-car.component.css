@@ -178,12 +178,3 @@ form {
 .responsive-table {
   width: 80vw;
 }
-
-.page-content,
-.page-filters {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: justify;
-  width: 100%;
-}

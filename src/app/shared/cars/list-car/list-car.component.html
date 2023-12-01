@@ -1,58 +1,30 @@
 <div class="main-content">
   <div class="page-filters">
-  </div>
-  <form>
+    <form>
     <div class="filters">
       <div class="form-input">
-        <label for="name" class="labelInput">Nome</label>
+        <label for="car" class="labelInput">Carro</label>
         <input
           type="text"
-          id="name"
-          name="name"
+          id="car"
+          name="car"
+          [(ngModel)]="formData.car"
                  />
       </div>
 
       <div class="form-item">
-        <label for="email" class="labelInput">Email</label>
+        <label for="model" class="labelInput">Modelo</label>
         <input
           type="text"
-          id="email"
-          name="email"
+          id="model"
+          name="model"
+          [(ngModel)]="formData.model"
                   />
       </div>
 
       <div class="form-item">
-        <label for="cpf" class="labelInput">CPF</label>
-        <input
-          mask="000.000.000-00"
-          type="text"
-          id="cpf"
-          name="cpf"
-                />
-      </div>
-
-      <div class="form-item">
-        <label for="status">Status</label>
-        <select id="status" name="status" >
-          <option value="6">Todos</option>
-          <option value="0">Inativo</option>
-          <option value="1">Ativo</option>
-        </select>
-      </div>
-
-      <div class="form-item">
-        <label for="group">Grupo</label>
-        <select id="group" name="group" >
-          <option value="0">Todos</option>
-          <option value="1">Administrador</option>
-          <option value="2">Instrutor</option>
-          <option value="3">Aluno</option>
-        </select>
-      </div>
-
-      <div class="form-item">
         <label for="perPage">Itens por pagina</label>
-        <select id="perPage" name="perPage">
+        <select id="perPage" name="perPage" [(ngModel)]="formData.perPage">
           <option value="10">10</option>
           <option value="20">20</option>
           <option value="50">50</option>
@@ -60,10 +32,89 @@
       </div>
 
       <div class="form-item">
-        <button class="btn-filter">
+        <button class="btn-filter" (click)="fetchCars(1)">
           Aplicar Filtros
         </button>
       </div>
     </div>
   </form>
+    <!-- simbolo de loading -->
+    <div *ngIf="isLoad" class="loader-container">
+      <span class="loader"></span>
+    </div>
+  <!-- tablE results -->
+  <div class="page-content">
+    <div class="table-result">
+      <table class="responsive-table" id="customers">
+        <tr>
+          <th>Carro</th>
+          <th>Modelo</th>
+          <th>Ano de fabricação</th>
+          <th colspan="2" class="action">Ação</th>
+        </tr>
+        <tr *ngFor="let car of cars">
+          <td>{{ contentLength(car.car) }}</td>
+          <td>{{ contentLength(car.model) }}</td>
+          <td>{{ car.year_manufacture }}</td>
+          <!-- <td class="status">
+            <span
+              class="statusDot"
+              [ngClass]="{
+                active: car.status === 'Ativo',
+                inactive: user.status === 'Inativo'
+              }"
+            ></span>
+            {{ user.status }}
+          </td> -->
+          <td>
+            <button class="btn-action">
+              <img
+                src="../../../../assets/icones/view.svg"
+                alt="Visualizar"
+                class="view"
+              />
+            </button>
+
+            <button class="btn-action">
+              <img
+                src="../../../../assets/icones/edit.svg"
+                alt="Editar"
+                class="edit"
+              />
+            </button>
+          </td>
+        </tr>
+      </table>
+      <!-- paginação  -->
+      <div class="pagination">
+        <div>
+          <span
+            >Total: <b>{{ totalCars }} </b>
+          </span>
+          <span
+            >Paginas: <b>{{ totalPages }} </b>
+          </span>
+        </div>
+        <div class="buttons">
+          <button
+            class="btn-pagination"
+            [disabled]="currentPage === 1"
+            (click)="fetchCars(this.currentPage - pagination)"
+          >
+            <
+          </button>
+          {{ currentPage }}
+          <button
+            class="btn-pagination"
+            [disabled]="currentPage === totalPages"
+            (click)="fetchCars(this.currentPage + pagination)"
+          >
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+     
+  </div>
 </div>

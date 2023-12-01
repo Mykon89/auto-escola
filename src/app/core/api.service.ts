@@ -80,4 +80,38 @@ export class ApiService {
         return Promise.reject(error);
       });
   }
+
+
+  //listar carros com filtros ou sem
+  getCars(
+    user: string,
+    model: string,
+    plate: string,
+    year_manufacture: string,
+    created_by: string,
+    nextToPage: number,
+    perPage: string
+  ): Promise<any> {
+    const formData = {
+      car: user,
+      model: model,
+      year_manufacture: year_manufacture,
+      created_by: created_by,
+      plate: plate,
+      page: nextToPage,
+      perPage: perPage,
+    };
+    const endPoint = `${this.apiUrl}/car/cars/`;
+    return this.http
+      .post(endPoint, formData)
+      .toPromise()
+      .then((response) => {
+        // Resetar temporizador de inatividade após obter usuários
+
+        return response as any[];
+      })
+      .catch((error) => {
+        return Promise.reject(error);
+      });
+  }
 }

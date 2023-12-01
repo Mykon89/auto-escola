@@ -43,7 +43,7 @@ export class ListUserComponent implements OnInit {
     this.isLoad = true;
     const { name, email, status, usergroup, cpf, perPage } = this.formData;
     this.api
-      .getUsers(name, email, status, usergroup, cpf, pagination, perPage)
+      .getCars(name, email, status, usergroup, cpf, pagination, perPage)
       .then(
         (response) => {
           this.users = response.data; // Armazene os usuários na variável 'usuarios'

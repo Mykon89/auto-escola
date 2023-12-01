@@ -42,7 +42,7 @@ export class MenuComponent {
     {
       name: 'Carros',
       cName: 'menu-item',
-      icone: '../../assets/icones/menu/schedule.png',
+      icone: '../../assets/icones/menu/car-icon.png',
       subItems: [
         { label: 'Novo carro', link: '/new-car' },
         { label: 'Listar carros', link: '/list-car' },
