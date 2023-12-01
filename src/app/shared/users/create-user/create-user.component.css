@@ -100,3 +100,6 @@ input[type="checkbox"]:checked + .slider:before {
   background-color: #2eb886;
   color: #fff;
 }
+.full-width{
+  width: 100% !important;
+}

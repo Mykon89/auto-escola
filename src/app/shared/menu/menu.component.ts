@@ -11,6 +11,7 @@ export class MenuComponent {
     {
       name: 'Home',
       cName: 'menu-item',
+      icone: '../../assets/icones/menu/home-icon.png',
       subItems: [
         { label: 'Home', link: '/home' },
         { label: 'Novidades', link: '/news' },
@@ -20,6 +21,7 @@ export class MenuComponent {
     {
       name: 'Cadastros',
       cName: 'menu-item',
+      icone: '../../assets/icones/menu/users-icon.png',
       subItems: [
         { label: 'Usuário', link: '/create-user' },
         { label: 'Listar Usuários', link: '/list-user' },
@@ -30,6 +32,7 @@ export class MenuComponent {
     {
       name: 'Agendas',
       cName: 'menu-item',
+      icone: '../../assets/icones/menu/schedule.png',
       subItems: [
         { label: 'Nova Agenda', link: '/new-schedule' },
         { label: 'Agenda por Aluno', link: '/agenda-by-student' },

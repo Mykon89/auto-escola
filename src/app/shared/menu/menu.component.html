@@ -17,11 +17,14 @@
       (click)="showSubMenu(item.name)"
       class="{{ item.cName }}"
     >
+    <!-- //icone do menu -->
+    <img class="icone-menu" src="{{item.icone}}" alt="">
       {{ item.name }}
-      <ul *ngIf="selectedItem === item.name">
+      <ul class="menu-list" *ngIf="selectedItem === item.name">
         <li
           *ngFor="let subItem of item.subItems"
           routerLink="{{ subItem.link }}"
+          class="{{ item.cName }}"
         >
           {{ subItem.label }}
         </li>
